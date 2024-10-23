@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://stac-extensions.github.io/template/v1.0.0/schema.json#",
-  "title": "Template Extension",
-  "description": "STAC Template Extension for STAC Items and STAC Collections.",
+  "$id": "https://dewberry.github.io/sst/v0.1.0/schema.json#",
+  "title": "SST Extension",
+  "description": "STAC SST Extension for STAC Items and STAC Collections.",
   "oneOf": [
     {
       "$comment": "This is the schema for STAC Items. Remove this object if this extension only applies to Collections.",
@@ -26,7 +26,7 @@
                 {
                   "$comment": "Require fields here for Item Properties.",
                   "required": [
-                    "template:new_field"
+                    "sst:statistics"
                   ]
                 },
                 {
@@ -64,20 +64,6 @@
         }
       ],
       "anyOf": [
-        {
-          "$comment": "This is the schema for the top-level fields in a Collection. Remove this if this extension does not define top-level fields for Collections.",
-          "allOf": [
-            {
-              "$comment": "Require fields here for Collections (top-level).",
-              "required": [
-                "template:new_field"
-              ]
-            },
-            {
-              "$ref": "#/definitions/fields"
-            }
-          ]
-        },
         {
           "$comment": "This validates the fields in Collection Assets, but does not require them.",
           "required": [
@@ -152,7 +138,7 @@
         "stac_extensions": {
           "type": "array",
           "contains": {
-            "const": "https://stac-extensions.github.io/template/v1.0.0/schema.json"
+            "const": "https://dewberry.github.io/sst/v0.1.0/schema.json"
           }
         }
       }
@@ -160,50 +146,81 @@
     "require_any_field": {
       "$comment": "Please list all fields here so that we can force the existence of one of them in other parts of the schemas.",
       "anyOf": [
-        {"required": ["template:new_field"]},
-        {"required": ["template:xyz"]},
-        {"required": ["template:another_one"]}
+        {
+          "required": [
+            "sst:statistics"
+          ]
+        }
+      ]
+    },
+    "accumulation_measurement_with_units": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "precipitation accumulation value",
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "description": "unit of linear distance measurement used to measure precipitation accumulation",
+          "enum": [
+            "in",
+            "mm"
+          ]
+        }
+      }
+    },
+    "sst:statistics": {
+      "title": "Precipitation Accumultation Statistics",
+      "description": "A collection of statistics computed using accumulated AORC precipitation data for a transposed watershed within the transposition domain",
+      "type": "object",
+      "properties": {
+        "min": {
+          "title": "Minimum Precipitation",
+          "description": "Minimum precipitation accumulation value",
+          "$ref": "#/definitions/accumulation_measurement_with_units"
+        },
+        "mean": {
+          "title": "Mean Precipitation",
+          "description": "Mean precipitation accumulation value",
+          "$ref": "#/definitions/accumulation_measurement_with_units"
+        },
+        "max": {
+          "title": "Maximum Precipitation",
+          "description": "Maximum precipitation accumulation value",
+          "$ref": "#/definitions/accumulation_measurement_with_units"
+        },
+        "count": {
+          "title": "Count",
+          "description": "Count of gridded precipitation cells used to calculate accumulation measurements",
+          "type": "integer",
+          "minimum": 1
+        },
+        "normalized_mean": {
+          "title": "Normalized Mean Precipitation",
+          "description": "Mean of precipitation accumulation values divided by corresponding ATLAS14 data values for normalization",
+          "$ref": "#/definitions/accumulation_measurement_with_units"
+        }
+      },
+      "required": [
+        "min",
+        "mean",
+        "max",
+        "count"
       ]
     },
     "fields": {
       "$comment": "Add your new fields here. Don't require them here, do that above in the corresponding schema.",
       "type": "object",
       "properties": {
-        "template:new_field": {
-          "type": "string"
+        "sst:statistics": {
+          "$ref": "#/definitions/sst:statistics"
         },
-        "template:xyz": {
-          "type": "object",
-          "required": [
-            "x",
-            "y",
-            "z"
-          ],
-          "properties": {
-            "x": {
-              "type": "number"
-            },
-            "y": {
-              "type": "number"
-            },
-            "z": {
-              "type": "number"
-            }
-          }
+        "patternProperties": {
+          "^(?!sst:)": {}
         },
-        "template:another_one": {
-          "type": "array",
-          "items": {
-            "type": "number"
-          }
-        }
-      },
-      "patternProperties": {
-        "^(?!template:)": {
-          "$comment": "Above, change `template` to the prefix of this extension"
-        }
-      },
-      "additionalProperties": false
+        "additionalProperties": false
+      }
     }
   }
 }
