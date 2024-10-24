@@ -2,10 +2,7 @@
   "type": "Feature",
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://dewberry.github.io/sst-stac-extension/v0.1.0-beta/schema.json",
-    "https://stac-extensions.github.io/authentication/v1.1.0/schema.json",
-    "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
-    "https://stac-extensions.github.io/storage/v2.0.0/schema.json"
+    "https://dewberry.github.io/sst-stac-extension/v0.1.0-beta/schema.json"
   ],
   "id": "trinity_v01_20241002-000000_20241005-000000",
   "geometry": {
@@ -128,19 +125,6 @@
         "unit": "in"
       },
       "count": 1
-    },
-    "proj:transform": [
-      1.0,
-      0.0,
-      5.0,
-      0.0,
-      1.0,
-      5.0
-    ],
-    "proj:code": "EPSG:4326",
-    "proj:centroid": {
-      "lat": 37.22584942639178,
-      "lon": -91.50030785972565
     },
     "start_datetime": "2024-10-02T00:00:00Z",
     "end_datetime": "2024-10-05T00:00:00Z",
