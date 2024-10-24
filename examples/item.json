@@ -199,9 +199,9 @@
       "type": "application/vnd+zarr",
       "title": "AORC Dataset (1979)",
       "description": "ZARR dataset for AORC data in year 1979 used in SST modeling",
-      "datetime": "1979-01-01T00:00:00",
-      "start_datetime": "1979-01-01T00:00:00",
-      "end_datetime": "1980-01-01T00:00:00",
+      "datetime": "1979-01-01T00:00:00+00:00",
+      "start_datetime": "1979-01-01T00:00:00+00:00",
+      "end_datetime": "1980-01-01T00:00:00+00:00",
       "roles": [
         "data"
       ]
