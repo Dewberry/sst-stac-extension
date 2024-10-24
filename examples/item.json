@@ -114,15 +114,15 @@
   "properties": {
     "sst:statistics": {
       "min": {
-        "value": 0.0,
+        "value": 0.25,
         "unit": "in"
       },
       "mean": {
-        "value": 0.0,
+        "value": 0.75,
         "unit": "in"
       },
       "max": {
-        "value": 0.0,
+        "value": 1.5,
         "unit": "in"
       },
       "count": 1
