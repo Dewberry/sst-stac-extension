@@ -1,73 +1,54 @@
 {
-  "stac_version": "1.0.0",
-  "stac_extensions": [
-    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/template/v1.0.0/schema.json"
-  ],
   "type": "Collection",
-  "id": "collection",
-  "title": "A title",
-  "description": "A description",
-  "license": "Apache-2.0",
+  "id": "trinity_v01_20241001-000000_20241010-000000",
+  "stac_version": "1.0.0",
+  "description": "Collection of SST output metadata for watershed Trinity, transposition domain v01, over the period from 2024-10-01T00:00:00 to 2024-10-10T00:00:00",
+  "links": [
+    {
+      "rel": "root",
+      "href": "../catalog.json",
+      "type": "application/json",
+      "title": "SST Catalog"
+    },
+    {
+      "rel": "item",
+      "href": "./trinity_v01_20241002-000000_20241005-000000/trinity_v01_20241002-000000_20241005-000000.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../catalog.json",
+      "type": "application/json",
+      "title": "SST Catalog"
+    }
+  ],
+  "stac_extensions": [
+    "https://dewberry.github.io/sst/v0.1.0/schema.json",
+    "https://stac-extensions.github.io/authentication/v1.1.0/schema.json",
+    "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
+    "https://stac-extensions.github.io/storage/v2.0.0/schema.json"
+  ],
+  "proj:code": "EPSG:4326",
+  "title": "Stochaistic Storm Transposition Data Collection for Watershed Trinity, Transposition Domain v01",
   "extent": {
     "spatial": {
       "bbox": [
         [
-          172.9,
-          1.3,
-          173,
-          1.4
+          -99.3190527783109,
+          26.78544101932759,
+          -81.74607178632105,
+          35.82110323847811
         ]
       ]
     },
     "temporal": {
       "interval": [
         [
-          "2015-06-23T00:00:00Z",
-          null
+          "2024-10-01T00:00:00Z",
+          "2024-10-10T00:00:00Z"
         ]
       ]
     }
   },
-  "template:new_field": "test",
-  "template:xyz": {
-    "x": 1,
-    "y": 2,
-    "z": 3
-  },
-  "template:another_one": [
-    1,
-    2,
-    3
-  ],
-  "assets": {
-    "example": {
-      "href": "https://example.com/examples/file.xyz",
-      "template:new_field": "test"
-    }
-  },
-  "item_assets": {
-    "data": {
-      "roles": [
-        "data"
-      ],
-      "template:new_field": "test"
-    }
-  },
-  "summaries": {
-    "datetime": {
-      "minimum": "2015-06-23T00:00:00Z",
-      "maximum": "2019-07-10T13:44:56Z"
-    }
-  },
-  "links": [
-    {
-      "href": "https://example.com/examples/collection.json",
-      "rel": "self"
-    },
-    {
-      "href": "https://example.com/examples/item.json",
-      "rel": "item"
-    }
-  ]
+  "license": "proprietary"
 }

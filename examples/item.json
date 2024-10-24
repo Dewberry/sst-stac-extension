@@ -1,67 +1,212 @@
 {
+  "type": "Feature",
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/template/v1.0.0/schema.json"
+    "https://dewberry.github.io/sst/v0.1.0/schema.json",
+    "https://stac-extensions.github.io/authentication/v1.1.0/schema.json",
+    "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
+    "https://stac-extensions.github.io/storage/v2.0.0/schema.json"
   ],
-  "type": "Feature",
-  "id": "item",
-  "bbox": [
-    172.9,
-    1.3,
-    173,
-    1.4
-  ],
+  "id": "trinity_v01_20241002-000000_20241005-000000",
   "geometry": {
     "type": "Polygon",
     "coordinates": [
       [
         [
-          172.9,
-          1.3
+          -96.3951711592635,
+          34.73451074867901
         ],
         [
-          173,
-          1.3
+          -95.23332000794193,
+          34.38617998567796
         ],
         [
-          173,
-          1.4
+          -95.39183031394589,
+          33.94203082386741
         ],
         [
-          172.9,
-          1.4
+          -94.89875998241956,
+          33.61646995770608
         ],
         [
-          172.9,
-          1.3
+          -94.92491996154564,
+          33.380770009113554
+        ],
+        [
+          -94.69071361607587,
+          33.142100060525706
+        ],
+        [
+          -94.48056348827703,
+          32.47553852822702
+        ],
+        [
+          -93.80368148620272,
+          31.901829530159198
+        ],
+        [
+          -93.57772757613675,
+          30.82164783496088
+        ],
+        [
+          -93.85320995487582,
+          30.751749959027695
+        ],
+        [
+          -93.97586000260213,
+          31.06108000750592
+        ],
+        [
+          -93.86674994756311,
+          31.21561992705768
+        ],
+        [
+          -94.27313779693236,
+          31.723778935643935
+        ],
+        [
+          -94.75185097848095,
+          31.773863448066177
+        ],
+        [
+          -94.92392657821387,
+          31.651452062839528
+        ],
+        [
+          -95.07648426026873,
+          31.768500533491196
+        ],
+        [
+          -95.23419032981559,
+          32.6176564727981
+        ],
+        [
+          -96.05942267228465,
+          32.90563346297607
+        ],
+        [
+          -96.09068336598614,
+          33.161599357370456
+        ],
+        [
+          -96.67247087237479,
+          33.55721208383972
+        ],
+        [
+          -97.00479424581727,
+          34.06833380075475
+        ],
+        [
+          -97.73673879780614,
+          34.41131861897228
+        ],
+        [
+          -96.3951711592635,
+          34.73451074867901
         ]
       ]
     ]
   },
+  "bbox": [
+    -97.73673879780614,
+    30.751749959027695,
+    -93.57772757613675,
+    34.73451074867901
+  ],
   "properties": {
-    "datetime": "2020-12-11T22:38:32Z",
-    "template:new_field": "test",
-    "template:xyz": {
-      "x": 1,
-      "y": 2,
-      "z": 3
+    "sst:statistics": {
+      "min": {
+        "value": 0,
+        "unit": "in"
+      },
+      "mean": {
+        "value": 0,
+        "unit": "in"
+      },
+      "max": {
+        "value": 0,
+        "unit": "in"
+      },
+      "count": 1,
+      "normalized_mean": 1
     },
-    "template:another_one": [
+    "proj:transform": [
+      1.0,
+      0.0,
       1,
-      2,
-      3
-    ]
+      0.0,
+      1.0,
+      1
+    ],
+    "proj:code": "EPSG:4326",
+    "proj:centroid": {
+      "lat": 33.225849426391775,
+      "lon": -95.50030785972564
+    },
+    "start_datetime": "2024-10-02T00:00:00Z",
+    "end_datetime": "2024-10-05T00:00:00Z",
+    "datetime": "2024-10-02T00:00:00Z"
   },
   "links": [
     {
-      "href": "https://example.com/examples/item.json",
-      "rel": "self"
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json",
+      "title": "SST Catalog"
+    },
+    {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "Stochaistic Storm Transposition Data Collection for Watershed Trinity, Transposition Domain v01"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "Stochaistic Storm Transposition Data Collection for Watershed Trinity, Transposition Domain v01"
     }
   ],
   "assets": {
-    "data": {
-      "href": "https://example.com/examples/file.xyz",
-      "template:new_field": "test"
+    "thumbnail": {
+      "href": "./thumbnail.png",
+      "type": "image/png",
+      "title": "Trinity Thumbnail (2024-10-02T00:00:00 to 2024-10-05T00:00:00)",
+      "description": "Thumbnail image showning accumulation quantities on a map",
+      "roles": [
+        "thumbnail"
+      ]
+    },
+    "watershed": {
+      "href": "./watershed.geojson",
+      "type": "application/geo+json",
+      "title": "Trinity Watershed",
+      "description": "GeoJSON file of the extent of the watershed (Trinity) used in SST modeling",
+      "roles": [
+        "data"
+      ]
+    },
+    "transposition_domain": {
+      "href": "./transposition.geojson",
+      "type": "application/geo+json",
+      "title": "Transposition Domain v01",
+      "description": "GeoJSON file of transposition domain (v01) for watershed Trinity used in SST modeling",
+      "roles": [
+        "data"
+      ]
+    },
+    "aorc_1979": {
+      "href": "s3://test/aorc_key.zarr",
+      "type": "application/vnd+zarr",
+      "title": "AORC Dataset (1979)",
+      "description": "ZARR dataset for AORC data in year 1979 used in SST modeling",
+      "datetime": "1979-01-01T00:00:00",
+      "start_datetime": "1979-01-01T00:00:00",
+      "end_datetime": "1980-01-01T00:00:00",
+      "roles": [
+        "data"
+      ]
     }
-  }
+  },
+  "collection": "trinity_v01_20241001-000000_20241010-000000"
 }
