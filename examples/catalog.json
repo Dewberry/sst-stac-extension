@@ -1,21 +1,21 @@
 {
-    "type": "Catalog",
-    "id": "sst_output_catalog",
-    "stac_version": "1.0.0",
-    "description": "sst output catalog",
-    "links": [
-        {
-            "rel": "root",
-            "href": "./catalog.json",
-            "type": "application/json",
-            "title": "SST Catalog"
-        },
-        {
-            "rel": "child",
-            "href": "./trinity_v01_20241001-000000_20241010-000000/collection.json",
-            "type": "application/json",
-            "title": "Stochaistic Storm Transposition Data Collection for Watershed Trinity, Transposition Domain v01"
-        }
-    ],
-    "title": "SST Catalog"
+  "type": "Catalog",
+  "id": "sst_output_catalog",
+  "stac_version": "1.0.0",
+  "description": "sst output catalog",
+  "links": [
+    {
+      "rel": "root",
+      "href": "./catalog.json",
+      "type": "application/json",
+      "title": "SST Catalog"
+    },
+    {
+      "rel": "child",
+      "href": "./trinity_v01_20241001-000000_20241010-000000/collection.json",
+      "type": "application/json",
+      "title": "Stochaistic Storm Transposition Data Collection for Watershed Trinity, Transposition Domain v01"
+    }
+  ],
+  "title": "SST Catalog"
 }

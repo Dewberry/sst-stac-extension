@@ -31,20 +31,13 @@
     "spatial": {
       "bbox": [
         [
-          -99.3190527783109,
-          26.78544101932759,
-          -81.74607178632105,
+          -99.3190527783109, 26.78544101932759, -81.74607178632105,
           35.82110323847811
         ]
       ]
     },
     "temporal": {
-      "interval": [
-        [
-          "2024-10-01T00:00:00Z",
-          "2024-10-10T00:00:00Z"
-        ]
-      ]
+      "interval": [["2024-10-01T00:00:00Z", "2024-10-10T00:00:00Z"]]
     }
   },
   "license": "proprietary",
@@ -54,18 +47,14 @@
       "type": "application/geo+json",
       "title": "Trinity Watershed",
       "description": "GeoJSON file of the extent of the watershed (Trinity) used in SST modeling",
-      "roles": [
-        "data"
-      ]
+      "roles": ["data"]
     },
     "transposition_domain": {
       "href": "transposition.geojson",
       "type": "application/geo+json",
       "title": "Transposition Domain v01",
       "description": "GeoJSON file of transposition domain (v01) for watershed Trinity used in SST modeling",
-      "roles": [
-        "data"
-      ]
+      "roles": ["data"]
     }
   }
 }
