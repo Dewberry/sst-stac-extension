@@ -199,7 +199,8 @@
         "normalized_mean": {
           "title": "Normalized Mean Precipitation",
           "description": "Mean of precipitation accumulation values divided by corresponding ATLAS14 data values for normalization",
-          "$ref": "#/definitions/accumulation_measurement_with_units"
+          "type": "number",
+          "exclusiveMinimum": 0
         }
       },
       "required": [
