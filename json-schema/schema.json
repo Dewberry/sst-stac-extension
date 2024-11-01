@@ -96,7 +96,8 @@
       "anyOf": [
         {
           "required": [
-            "sst:statistics"
+            "sst:statistics",
+            "sst:transform"
           ]
         }
       ]
@@ -157,6 +158,24 @@
         "max",
         "count"
       ]
+    },
+    "sst:transform": {
+      "title":"Transform",
+      "description": "A 3x3 matrix stored as a flat array of 9 elements in row major order. Since the last row is always 0,0,1 it can be omitted, in which case only 6 elements are recorded. Refers to the transform applied to the original watershed geometry to yield the provided watershed geometry",
+      "type":"array",
+      "oneOf": [
+        {
+          "minItems":6,
+          "maxItems":6
+        },
+        {
+          "minItems":9,
+          "maxItems":9
+        }
+      ],
+      "items":{
+        "type":"number"
+      }
     },
     "fields": {
       "$comment": "Add your new fields here. Don't require them here, do that above in the corresponding schema.",
